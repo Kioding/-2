@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>New한 News</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- 부가적인 테마 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+  <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+  <style>
+    .daum {
+      padding: 20px;
+      border: 5px dark;
+      border-radius: 50px;
+    }
+
+    #wrap {
+      width: 600px;
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="wrap">
+    <form action="/result" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1"> 다음뉴스 키워드 입력</label>
+        <input type="text" class="form-control" name="input1" placeholder="키워드를 입력해주세요.">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">페이지 입력</label>
+        <input type="number"" class=" form-control" name="input2" placeholder="페이지수를 입력해주세요.">
+      </div>
+
+      <button type="submit" class="btn btn-default">검색</button>
+    </form>
+    <div>
+      <div class="daum">
+        <h1> 20대 여성 다음랭킹뉴스 </h1>
+        <ul>
+          {% for i in range(0, daumone_len) %}
+          <a href="{{daumone_href[i]}}">
+            <li>{{daumone[i]}}</li>
+          </a>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="daum">
+        <h1> 20대 남성 다음랭킹뉴스 </h1>
+        <ul>
+          {% for i in range(0, daumtwo_len) %}
+          <a href="{{daumtwo_href[i]}}">
+            <li>{{daumtwo[i]}}</li>
+          </a>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="daum">
+        <h1> 30대 여성 다음랭킹뉴스 </h1>
+        <ul>
+          {% for i in range(0, daumthree_len) %}
+          <a href="{{daumthree_href[i]}}">
+            <li>{{daumthree[i]}}</li>
+          </a>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="daum">
+        <h1> 30대 남성 다음랭킹뉴스 </h1>
+        <ul>
+          {% for i in range(0, daumfour_len) %}
+          <a href="{{daumfour_href[i]}}">
+            <li>{{daumfour[i]}}</li>
+          </a>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="daum">
+        <h1> 오늘의 유머 베스트 </h1>
+        <ul>
+          {% for i in range(0, today_len) %}
+          <a href="{{today_href[i]}}">
+            <li>{{today[i]}}</li>
+          </a>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- <div class="daum">
+        <h1> 클리앙 </h1>
+    <ul>
+        {% for i in clien %}
+            <li>{{i}}</li>
+        {% endfor %}
+    </ul>
+    </div> -->
+
+    </div>
+</body>
+
+</html>
